@@ -17,12 +17,6 @@ function Menu({ children, items = [], onChange = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setHistory((prev) => [...prev, { data: items[0].children }]);
-    //     }, 5000);
-    // }, []);
-
     const renderItems = () => {
         return current.data.map((item, index) => {
             const isParent = item.hasOwnProperty('children');
@@ -46,7 +40,6 @@ function Menu({ children, items = [], onChange = defaultFn }) {
     return (
         <Tippy
             interactive
-            visible
             delay={[0, 700]}
             offset={[12, 10]}
             placement="bottom-end"
